@@ -18,22 +18,72 @@ body {
     text-align: center;
 }
 
-nav {
+// mobile-toggle
+.mNavToggle {
     display: flex;
-    gap: 1rem;
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 1rem;
+    flex-direction: column;
     justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    cursor: pointer;
+    z-index: 99;
+}
+
+.line {
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    transition: all 0.3s ease;
+}
+
+.mNavToggle.open .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mNavToggle.open .line:nth-child(2) {
+    opacity: 0;
+}
+
+.mNavToggle.open .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+// nav
+.navToggleOpen {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    height: calc(100vh - 5rem);
+    margin: 2rem auto;
+    padding: 5rem 1rem 0;
+    justify-content: flex-start;
+    align-items: center;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: $mainColor;
     text-align: center;
+    transition: transform 0.5s ease;
+    top: -2rem;
+    z-index: 98;
     a {
-        width: 100%;
-        font-size: 1.2rem;
+        width: 80%;
+        font-size: 1rem;
         font-weight: 900;
         &:hover {
-            color: rgb(92, 162, 255);
+            color: rgb(0, 32, 74);
         }
     }
+}
+
+.navToggleClose {
+    height: 0;
+    width: 0;
+    transform: translateX(-10rem);
+    opacity: 0;
 }
 
 .searchHeader {
@@ -169,8 +219,24 @@ li:hover {
 // pc
 @media (min-width: 1080px) {
     nav {
+        display: flex;
+        gap: 1rem;
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 1rem;
+        justify-content: space-between;
+        text-align: center;
         a {
-            font-size: 1.4rem;
+            width: 80%;
+            font-size: 1rem;
+            font-weight: 900;
+            &:hover {
+                color: rgb(92, 162, 255);
+            }
+            flex: 1;
+        }
+        .home {
+            flex: 2;
         }
     }
 

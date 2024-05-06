@@ -69,15 +69,32 @@ export default function Searching(): JSX.Element {
         }
     };
 
+    const [toggle, setToggle] = useState(false);
+
+    const useToggle = () => {
+        setToggle(!toggle);
+    };
+
     return (
         <>
-            <nav>
-                <a href="/">Home</a>
+            <div
+                onClick={useToggle}
+                className={toggle ? 'mNavToggle open' : 'mNavToggle'}
+            >
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+            </div>
+            <nav className={toggle ? 'navToggleOpen' : 'navToggleClose'}>
                 <a
                     href="https://culture.seoul.go.kr/culture/culture/cultureEvent/list.do?searchCate=&menuNo=200110"
                     target="_blank"
                 >
                     문화행사
+                </a>
+                <a href="#">문화정보</a>
+                <a href="/" className="home">
+                    Culture-Voyage
                 </a>
                 <a href="#">새소식</a>
                 <a href="#">참여</a>
