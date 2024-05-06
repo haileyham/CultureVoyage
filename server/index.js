@@ -22,6 +22,7 @@ app.get('/', (req, res) => {
   const debouncedValue = req.query.debouncedValue;
   const url = `${baseUrl}${apiKey}/${endpoint}${pageNumber}/${itemsPerPage}/%20/${debouncedValue}`;
 
+
   axios.get(url)
     .then(response => {
       res.send(response.data);
@@ -35,8 +36,4 @@ app.get('/', (req, res) => {
 // 서버 시작
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
-});
-
-app.get('/', (req, res) => {
-  res.status(200).send('Server is running successfully');
 });
