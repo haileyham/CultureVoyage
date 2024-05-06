@@ -3,7 +3,7 @@ const express = require('express');
 const axios = require('axios');
 const cors = require('cors'); // cors 미들웨어 추가
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = 8080;
 
 // CORS 미들웨어를 사용하여 해당 출처 허용
 const corsOptions = {
