@@ -8,7 +8,9 @@ interface CulturalEvent {
 export default async function api(debounced: string): Promise<CulturalEvent[]> {
     try {
         const response = await fetch(
-            `http://localhost:3001/?itemsPerPage=${1000}&debouncedValue=${debounced}`,
+            `${
+                process.env.REACT_APP_URL
+            }/?itemsPerPage=${1000}&debouncedValue=${debounced}`,
         );
         if (!response.ok) {
             throw new Error('오류');
