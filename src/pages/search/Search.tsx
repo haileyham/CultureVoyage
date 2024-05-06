@@ -71,101 +71,119 @@ export default function Searching(): JSX.Element {
 
     return (
         <>
+            <nav>
+                <a href="/">Home</a>
+                <a
+                    href="https://culture.seoul.go.kr/culture/culture/cultureEvent/list.do?searchCate=&menuNo=200110"
+                    target="_blank"
+                >
+                    문화행사
+                </a>
+                <a href="#">새소식</a>
+                <a href="#">참여</a>
+            </nav>
             <div className="searchContainer">
                 <header className="searchHeader">
-                    <h1>찾아보자!</h1>
-                    <div className="searchReco">
-                        <input
-                            onChange={handleInputChange}
-                            onKeyDown={handleKeyPress}
-                            type="text"
-                            value={
-                                searchIndex >= 0 &&
-                                !buttonClicked &&
-                                title &&
-                                eventDataReco[searchIndex]?.TITLE
-                                    ? (eventDataReco[searchIndex]
-                                          ?.TITLE as string)
-                                    : (title as string)
-                            }
-                        />
-                        {title ? (
-                            <span
-                                className="searchClose"
-                                onClick={() => {
-                                    setTitle('');
-                                }}
-                            >
-                                Ｘ
-                            </span>
-                        ) : null}
-                        {debounced ? (
-                            <ul className="searchRecommendBox">
-                                {title &&
-                                eventDataReco &&
-                                eventDataReco.length > 0 ? (
-                                    eventDataReco.map((data, i) => {
-                                        const recommendationText =
-                                            data.TITLE || '';
-                                        const startIndex = recommendationText
-                                            .toLowerCase()
-                                            .indexOf(title.toLowerCase());
-                                        const endIndex =
-                                            startIndex + title.length;
-                                        return (
-                                            <li
-                                                key={data.id}
-                                                className={
-                                                    i === searchIndex
-                                                        ? 'selected'
-                                                        : ''
-                                                }
-                                            >
-                                                <a
-                                                    href={
-                                                        data.HMPG_ADDR as string
+                    <h1>서울시 문화행사</h1>
+                    <div className="searchBox">
+                        <div className="searchReco">
+                            <input
+                                onChange={handleInputChange}
+                                onKeyDown={handleKeyPress}
+                                type="text"
+                                value={
+                                    searchIndex >= 0 &&
+                                    !buttonClicked &&
+                                    title &&
+                                    eventDataReco[searchIndex]?.TITLE
+                                        ? (eventDataReco[searchIndex]
+                                              ?.TITLE as string)
+                                        : (title as string)
+                                }
+                            />
+                            {title ? (
+                                <span
+                                    className="searchClose"
+                                    onClick={() => {
+                                        setTitle('');
+                                    }}
+                                >
+                                    Ｘ
+                                </span>
+                            ) : null}
+                            {debounced ? (
+                                <ul className="searchRecommendBox">
+                                    {title &&
+                                    eventDataReco &&
+                                    eventDataReco.length > 0 ? (
+                                        eventDataReco.map((data, i) => {
+                                            const recommendationText =
+                                                data.TITLE || '';
+                                            const startIndex =
+                                                recommendationText
+                                                    .toLowerCase()
+                                                    .indexOf(
+                                                        title.toLowerCase(),
+                                                    );
+                                            const endIndex =
+                                                startIndex + title.length;
+                                            return (
+                                                <li
+                                                    key={data.id}
+                                                    className={
+                                                        i === searchIndex
+                                                            ? 'selected'
+                                                            : ''
                                                     }
-                                                    target="blank"
-                                                    id="searchA"
-                                                    title={data.TITLE as string}
                                                 >
-                                                    {startIndex > -1 &&
-                                                    endIndex > -1 ? (
-                                                        <>
-                                                            {recommendationText.slice(
-                                                                0,
-                                                                startIndex,
-                                                            )}
-                                                            <strong className="recommendStrong">
+                                                    <a
+                                                        href={
+                                                            data.HMPG_ADDR as string
+                                                        }
+                                                        target="blank"
+                                                        id="searchA"
+                                                        title={
+                                                            data.TITLE as string
+                                                        }
+                                                    >
+                                                        {startIndex > -1 &&
+                                                        endIndex > -1 ? (
+                                                            <>
                                                                 {recommendationText.slice(
+                                                                    0,
                                                                     startIndex,
+                                                                )}
+                                                                <strong className="recommendStrong">
+                                                                    {recommendationText.slice(
+                                                                        startIndex,
+                                                                        endIndex,
+                                                                    )}
+                                                                </strong>
+                                                                {recommendationText.slice(
                                                                     endIndex,
                                                                 )}
-                                                            </strong>
-                                                            {recommendationText.slice(
-                                                                endIndex,
-                                                            )}
-                                                        </>
-                                                    ) : null}
-                                                </a>
-                                            </li>
-                                        );
-                                    })
-                                ) : (
-                                    <li>{debounced}</li>
-                                )}
-                            </ul>
-                        ) : null}
+                                                            </>
+                                                        ) : null}
+                                                    </a>
+                                                </li>
+                                            );
+                                        })
+                                    ) : (
+                                        <li>{debounced}</li>
+                                    )}
+                                </ul>
+                            ) : null}
+                        </div>
+                        <button
+                            onClick={() => {
+                                setButtonClicked(true);
+                                setTitle('');
+                                get();
+                            }}
+                        >
+                            검색
+                        </button>
                     </div>
-                    <button
-                        onClick={() => {
-                            setButtonClicked(true);
-                            setTitle('');
-                            get();
-                        }}
-                    >
-                        검색
-                    </button>
                 </header>
                 <main className="cultureContainer">
                     {buttonClicked && eventDataReco[searchIndex] ? (

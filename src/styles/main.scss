@@ -5,64 +5,82 @@ a {
 
 $mainColor: rgb(184, 218, 255);
 body {
-    background-color: $mainColor;
     overflow-y: scroll;
-}
-
-//main페이지
-.searchBox {
-    padding: 2rem;
-    border-radius: 20px;
-    text-align: center;
-    font-size: 2rem;
-    cursor: pointer;
-    background: pink;
-    display: inline-block;
-    margin-right: 20px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 //searching페이지
 .searchContainer {
     max-width: 1080px;
-    margin: auto;
+    margin: 2rem auto;
     text-align: center;
 }
 
-.searchHeader {
-    background-color: $mainColor;
-    padding: 3rem;
-    input,
-    button {
-        padding: 1rem;
-        border: none;
-        border-radius: 5px;
+nav {
+    display: flex;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    justify-content: space-between;
+    text-align: center;
+    a {
+        width: 100%;
         font-size: 1.2rem;
-        outline: none;
+        font-weight: 900;
+        &:hover {
+            color: rgb(92, 162, 255);
+        }
     }
-    button {
-        background: rgb(123, 187, 255);
-        margin-left: 1rem;
-        color: white;
-        cursor: pointer;
-    }
-    input {
-        width: 30rem;
-    }
-    button:focus {
-        outline: 0.3rem solid rgb(102, 116, 131);
-    }
-    input:focus {
-        outline: 0.3rem solid rgb(123, 187, 255);
+}
+
+.searchHeader {
+    max-width: 90%;
+    margin: 1rem auto;
+    .searchBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        input,
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            outline: none;
+        }
+        input {
+            border: 1px solid $mainColor;
+            width: 15rem;
+        }
+        button {
+            background: rgb(123, 187, 255);
+            color: white;
+            cursor: pointer;
+        }
+        button:focus {
+            outline: 0.3rem solid rgb(102, 116, 131);
+        }
+        input:focus {
+            outline: 0.3rem solid rgb(123, 187, 255);
+        }
     }
 }
 
 .cultureContainer {
     background-color: $mainColor;
+    margin: auto;
     display: flex;
-    gap: 20px;
-    max-width: 1080px;
+    gap: 10px;
+    margin: 10px;
+    padding: 1rem;
     flex-wrap: wrap;
     justify-content: flex-start;
+    border: 1px solid $mainColor;
+    border-radius: 10px;
     .hiddenBoxLink {
         cursor: pointer;
         color: inherit;
@@ -70,25 +88,24 @@ body {
     }
     .cultureBox,
     .cultureBox2 {
-        background-color: rgb(237, 237, 248);
-        width: calc(30% - 20px); /* 너비를 조절하고 간격을 뺀 크기로 설정 */
+        width: calc(30% - 10px);
         flex-grow: 1;
         padding: 10px;
         border-radius: 10px;
-        // margin-left: 17px;
+        background-color: #ffffff7d;
         h2 {
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2; /* 최대 표시할 줄 수 설정 */
             overflow: hidden;
             text-overflow: ellipsis;
-            height: 60px;
-            width: 90%;
             margin: 20px auto;
+            width: 90%;
+            font-size: 1rem;
         }
         img {
-            width: 90%;
-            height: 20rem;
+            width: 80%;
+            // height: 20rem;
             object-fit: cover;
             border-radius: 10px;
         }
@@ -106,14 +123,15 @@ body {
 
 .searchRecommendBox {
     position: absolute;
-    list-style: none;
-    background: #fff;
-    width: 30rem;
-    border-radius: 5px;
-    line-height: 30px;
-    padding: 1rem;
-    margin-top: 5px;
+    width: 14rem;
     max-height: 20rem;
+    margin-top: 5px;
+    padding: 1rem;
+    border: 1px solid $mainColor;
+    border-radius: 5px;
+    background: #fff;
+    list-style: none;
+    line-height: 30px;
     overflow-y: auto;
     li {
         text-overflow: ellipsis;
@@ -136,7 +154,7 @@ li:hover {
 .searchClose {
     position: absolute;
     right: 0.5rem;
-    top: 0.55rem;
+    top: 0.1rem;
     font-size: 1.1rem;
     font-weight: 900;
     padding: 5px;
@@ -146,4 +164,55 @@ li:hover {
 
 .searchClose:hover {
     color: black;
+}
+
+// pc
+@media (min-width: 1080px) {
+    nav {
+        a {
+            font-size: 1.4rem;
+        }
+    }
+
+    .searchHeader {
+        margin: 5rem auto;
+        .searchBox {
+            input,
+            button {
+                padding: 1rem;
+                font-size: 1.2rem;
+            }
+            input {
+                width: 30rem;
+            }
+        }
+    }
+
+    .cultureContainer {
+        gap: 20px;
+        .cultureBox,
+        .cultureBox2 {
+            width: calc(30% - 20px);
+            h2 {
+                font-size: 1.4rem;
+                height: 60px;
+            }
+            img {
+                width: 90%;
+                height: 20rem;
+            }
+        }
+        .cultureBox2 {
+            flex-grow: 0;
+            margin: auto;
+        }
+    }
+
+    .searchRecommendBox {
+        width: 30rem;
+    }
+
+    .searchClose {
+        top: 0.55rem;
+    }
 }
