@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import '../../styles/main.scss';
 import useDebounce from '../../hooks/useDebounce';
 import { getSessionData, setSessionData } from '../../utils/sessionStorage';
@@ -8,7 +7,7 @@ import api from '../../api/api';
 interface CulturalEvent {
     [key: string]: string | null | undefined;
 }
-// XML 파싱한 것 json으로 변환해서 사용하기
+
 export default function Searching(): JSX.Element {
     const [eventData, setEventData] = useState<CulturalEvent[]>([]);
     const [eventDataReco, setEventDataReco] = useState<CulturalEvent[]>([]);
@@ -55,14 +54,9 @@ export default function Searching(): JSX.Element {
 
     const handleKeyPress = (e: React.KeyboardEvent) => {
         if (e.key === 'Enter') {
-            console.log('헬로');
             get();
-            const searchA = document.querySelector(
-                '#searchA',
-            ) as HTMLElement | null;
-            if (searchA) {
-                searchA.click();
-            }
+            setButtonClicked(true);
+            setTitle('');
         }
         if (e.key === 'Tab') {
             console.log('Tab');
@@ -80,8 +74,6 @@ export default function Searching(): JSX.Element {
             <div className="searchContainer">
                 <header className="searchHeader">
                     <h1>찾아보자!</h1>
-                    {/* {eventDataReco ? eventDataReco[searchIndex]?.TITLE : ''}
-                    {eventDataReco && eventDataReco[searchIndex]?.TITLE} */}
                     <div className="searchReco">
                         <input
                             onChange={handleInputChange}
@@ -174,35 +166,7 @@ export default function Searching(): JSX.Element {
                     >
                         검색
                     </button>
-
-                    {/* <p>{title}</p> */}
                 </header>
-                {/* <main className="cultureContainer">
-                    {buttonClicked &&
-                        eventData &&
-                        eventData.map((data) => {
-                            return (
-                                <div key={data.id} className="cultureBox">
-                                    <a
-                                        className="hiddenBoxLink"
-                                        href={data.HMPG_ADDR as string}
-                                        target="blank"
-                                    >
-                                        <h2>{data.TITLE}</h2>
-                                        <img
-                                            src={data.MAIN_IMG as string}
-                                            alt=""
-                                        />
-                                        <p>{data.DATE}</p>
-                                        <p>{data.GUNAME}</p>
-                                        <p>{data.IS_FREE}</p>
-                                        <p>{data.PLACE}</p>
-                                        <p>{data.CODENAME}</p>
-                                    </a>
-                                </div>
-                            );
-                        })}
-                </main> */}
                 <main className="cultureContainer">
                     {buttonClicked && eventDataReco[searchIndex] ? (
                         <div className="cultureBox2">
