@@ -77,6 +77,11 @@ body {
             color: rgb(0, 32, 74);
         }
     }
+    .home {
+        img {
+            display: none;
+        }
+    }
 }
 
 .navToggleClose {
@@ -218,14 +223,23 @@ li:hover {
 
 // pc
 @media (min-width: 1080px) {
-    nav {
+    //nav toggle
+    .mNavToggle {
+        display: none;
+    }
+    .navToggleOpen,
+    .navPc {
+        position: relative;
+        height: auto;
         display: flex;
+        flex-direction: row;
         gap: 1rem;
         max-width: 1200px;
         margin: 2rem auto;
-        padding: 1rem;
+        padding: 3rem;
         justify-content: space-between;
         text-align: center;
+        background-color: #fff;
         a {
             width: 80%;
             font-size: 1rem;
@@ -236,12 +250,35 @@ li:hover {
             flex: 1;
         }
         .home {
+            img {
+                display: inline;
+                width: 6rem;
+            }
+            span {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+                font-size: 2rem;
+                -webkit-text-stroke-width: 1px;
+                -webkit-text-stroke-color: rgb(0, 0, 0);
+            }
             flex: 2;
         }
     }
 
+    .navToggleClose {
+        height: auto;
+        width: auto;
+        transform: translateX(0rem);
+        opacity: 1;
+    }
+
     .searchHeader {
-        margin: 5rem auto;
+        margin: 2rem auto;
         .searchBox {
             input,
             button {

@@ -85,7 +85,7 @@ export default function Searching(): JSX.Element {
                 <div className="line"></div>
                 <div className="line"></div>
             </div>
-            <nav className={toggle ? 'navToggleOpen' : 'navToggleClose'}>
+            <nav className={toggle ? 'navToggleOpen' : 'navToggleClose navPc'}>
                 <a
                     href="https://culture.seoul.go.kr/culture/culture/cultureEvent/list.do?searchCate=&menuNo=200110"
                     target="_blank"
@@ -94,7 +94,8 @@ export default function Searching(): JSX.Element {
                 </a>
                 <a href="#">문화정보</a>
                 <a href="/" className="home">
-                    Culture-Voyage
+                    <img src="/logo192.png" alt="Logo" />
+                    <span>Culture-Voyage</span>
                 </a>
                 <a href="#">새소식</a>
                 <a href="#">참여</a>
