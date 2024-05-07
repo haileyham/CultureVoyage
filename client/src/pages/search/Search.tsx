@@ -102,7 +102,10 @@ export default function Searching(): JSX.Element {
             </nav>
             <div className="searchContainer">
                 <header className="searchHeader">
-                    <h1>서울시 문화행사</h1>
+                    <h1>
+                        <img src="/logo192.png" alt="Logo" />
+                        <a href="/">서울시 문화행사</a>
+                    </h1>
                     <div className="searchBox">
                         <div className="searchReco">
                             <input
@@ -216,13 +219,15 @@ export default function Searching(): JSX.Element {
                                 rel="noopener noreferrer"
                             >
                                 <h2>{eventDataReco[searchIndex]?.TITLE}</h2>
-                                <img
-                                    src={
-                                        eventDataReco[searchIndex]
-                                            ?.MAIN_IMG as string
-                                    }
-                                    alt=""
-                                />
+                                <div className="imgContainer">
+                                    <img
+                                        src={
+                                            eventDataReco[searchIndex]
+                                                ?.MAIN_IMG as string
+                                        }
+                                        alt={`${eventDataReco[searchIndex]?.TITLE}_event_poster_img`}
+                                    />
+                                </div>
                                 <p>{eventDataReco[searchIndex]?.DATE}</p>
                                 <p>{eventDataReco[searchIndex]?.GUNAME}</p>
                                 <p>{eventDataReco[searchIndex]?.IS_FREE}</p>
@@ -242,10 +247,12 @@ export default function Searching(): JSX.Element {
                                         target="blank"
                                     >
                                         <h2>{data.TITLE}</h2>
-                                        <img
-                                            src={data.MAIN_IMG as string}
-                                            alt=""
-                                        />
+                                        <div className="imgContainer">
+                                            <img
+                                                src={data.MAIN_IMG as string}
+                                                alt={`${data.TITLE}_event_poster_img`}
+                                            />
+                                        </div>
                                         <p>{data.DATE}</p>
                                         <p>{data.GUNAME}</p>
                                         <p>{data.IS_FREE}</p>

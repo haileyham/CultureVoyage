@@ -3,7 +3,20 @@ a {
     color: inherit;
 }
 
-$mainColor: rgb(184, 218, 255);
+$mainColor: rgb(209, 229, 255);
+@mixin styledText($width) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: $width;
+    transform: translate(-50%, -50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 2rem;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+}
 body {
     overflow-y: scroll;
     margin: 0;
@@ -64,7 +77,7 @@ body {
     align-items: center;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    background-color: $mainColor;
+    backdrop-filter: saturate(180%) blur(30px);
     text-align: center;
     transition: transform 0.5s ease;
     top: -2rem;
@@ -74,7 +87,7 @@ body {
         font-size: 1rem;
         font-weight: 900;
         &:hover {
-            color: rgb(0, 32, 74);
+            color: #298dff;
         }
     }
     .home {
@@ -93,7 +106,17 @@ body {
 
 .searchHeader {
     max-width: 90%;
-    margin: 1rem auto;
+    margin: 5rem auto 2rem;
+    h1 {
+        position: relative;
+        img {
+            display: inline;
+            width: 6rem;
+        }
+        a {
+            @include styledText(100%);
+        }
+    }
     .searchBox {
         display: flex;
         justify-content: center;
@@ -126,7 +149,7 @@ body {
 }
 
 .cultureContainer {
-    background-color: $mainColor;
+    // background-color: $mainColor;
     margin: auto;
     display: flex;
     gap: 10px;
@@ -134,7 +157,7 @@ body {
     padding: 1rem;
     flex-wrap: wrap;
     justify-content: flex-start;
-    border: 1px solid $mainColor;
+    // border: 1px solid $mainColor;
     border-radius: 10px;
     .hiddenBoxLink {
         cursor: pointer;
@@ -147,7 +170,9 @@ body {
         flex-grow: 1;
         padding: 10px;
         border-radius: 10px;
-        background-color: #ffffff7d;
+        backdrop-filter: saturate(180%) blur(30px);
+        box-shadow: 0 0 3px 0 rgb(172, 206, 255);
+        // background-color: rgba(221, 235, 255, 0.77);
         h2 {
             display: -webkit-box;
             -webkit-box-orient: vertical;
@@ -158,14 +183,23 @@ body {
             width: 90%;
             font-size: 1rem;
         }
+        .imgContainer {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+        }
         img {
-            width: 80%;
-            // height: 20rem;
+            width: 100%;
             object-fit: cover;
             border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        &:hover img {
+            transform: scale(1.1);
         }
     }
     .cultureBox2 {
+        width: calc(100% - 10px);
         flex-grow: 0;
         margin: auto;
     }
@@ -256,16 +290,7 @@ li:hover {
                 width: 6rem;
             }
             span {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background-clip: text;
-                -webkit-background-clip: text;
-                color: transparent;
-                font-size: 2rem;
-                -webkit-text-stroke-width: 1px;
-                -webkit-text-stroke-color: rgb(0, 0, 0);
+                @include styledText(auto);
             }
             flex: 2;
         }
@@ -280,6 +305,16 @@ li:hover {
 
     .searchHeader {
         margin: 3rem auto;
+        h1 {
+            a {
+                -webkit-text-stroke-width: initial;
+                -webkit-text-stroke-color: initial;
+                color: #000;
+            }
+            img {
+                opacity: 0;
+            }
+        }
         .searchBox {
             input,
             button {
@@ -301,9 +336,20 @@ li:hover {
                 font-size: 1.4rem;
                 height: 60px;
             }
-            img {
+            .imgContainer {
                 width: 90%;
-                height: 20rem;
+                margin: auto;
+                overflow: hidden;
+                border-radius: 10px;
+            }
+            img {
+                width: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+                transition: all 0.3s ease;
+            }
+            &:hover img {
+                transform: scale(1.1);
             }
         }
         .cultureBox2 {
