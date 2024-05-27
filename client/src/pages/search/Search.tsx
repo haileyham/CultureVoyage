@@ -92,7 +92,7 @@ export default function Searching(): JSX.Element {
                 >
                     문화행사
                 </a>
-                <a href="#">문화정보</a>
+                <a href="/Culture">문화정보</a>
                 <a href="/" className="home">
                     <img src="/logo192.png" alt="Logo" />
                     <span>Culture-Voyage</span>
