@@ -16,8 +16,13 @@
 ### 🐣 특징 및 성과
 - SEO 개선으로 평가 100% 달성
 - 추천 검색어 기능을 통해 사용자 이용 편리성 증대
-- useDebounce를 통한 API 호출 최소화
+- useDebounce를 통한 API 호출 최소화 (키워드 '크리스마스' 검색)
+  - API 호출 횟수가 13회에서 1회로 약 92.31% 감소
+  - 평균 응답시간 187.8ms -> 64.8ms로 약 65.5% 개선
 - session을 활용하여 기존 API 호출한 키워드의 경우 재사용 가능
+  - API 호출 횟수 21회 -> 1회로 감소(키워드 '클래식' 2회 검색)
+  - 서버 부담을 줄이고 시스템 성능 및 안정성 향상 <br/>
+  #### 🐤 참고 : [debounce 및 session 성능개선 ISSUE](https://github.com/haileyham/CultureVoyage/issues/1)
 - mobile input 입력 시 확대 방지로 인한 사용자 편리성 증대
 - 반응형 웹을 통한 사용자 친화적
 
@@ -47,6 +52,14 @@
 
 <p align="right"><a href="#top">TOP 🔼</a></p>
 
+# 🐤 성능 개선
+### 🐤 [debounce 및 session 성능개선 ISSUE](https://github.com/haileyham/CultureVoyage/issues/1)
+- 요약
+  - debounce 측정 결과 '크리스마스' 키워드의 경우 API 호출 횟수 92.31% 감소, 평균 응답 시간은 65.5% 개선 <br/>
+  - session '클래식' 키워드 기준 API 호출횟수는 21회에서 1회로 대폭 감소
+
+<p align="right"><a href="#top">TOP 🔼</a></p>
+
 # 🎃 트러블 슈팅
 ## 🎃 mixed content & HTTPS 설정 문제
 ### ▶ 요약
@@ -60,7 +73,5 @@
 <p align="right"><a href="#top">TOP 🔼</a></p>
 <br/>
 
-# 🎪 기능 시현
-
-
-<p align="right"><a href="#top">TOP 🔼</a></p>
+<!-- # 🎪 기능 시현
+<p align="right"><a href="#top">TOP 🔼</a></p> -->
