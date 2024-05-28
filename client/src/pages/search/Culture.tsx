@@ -2,6 +2,7 @@ import '../../styles/main.scss';
 import React, { useEffect, useState } from 'react';
 import api2 from '../../api/api2';
 import { useInView } from 'react-intersection-observer';
+import Header from '../../components/Header';
 interface CulturalEvent {
     [key: string]: string | null | undefined;
 }
@@ -42,13 +43,18 @@ export default function Culture() {
 
     return (
         <>
+            <Header></Header>
             <h1 className="postTitle">서울 문화 행사</h1>
             <div className="postWrap">
                 {item?.map((post) => (
                     <div key={post.id} className="post">
                         <h2>{post.TITLE}</h2>
                         <div>
-                            <img src={post.MAIN_IMG as string} />
+                            <img
+                                src={post.MAIN_IMG as string}
+                                sizes="(max-width: 600px) 300px, (max-width: 1200px) 600px, 1200px"
+                                alt={`${post.TITLE} 이미지`}
+                            />
                         </div>
                         <p>{post.GUNAME}</p>
                         <p>{post.PLACE}</p>

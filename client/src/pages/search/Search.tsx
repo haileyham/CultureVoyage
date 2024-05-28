@@ -3,6 +3,7 @@ import '../../styles/main.scss';
 import useDebounce from '../../hooks/useDebounce';
 import { getSessionData, setSessionData } from '../../utils/sessionStorage';
 import api from '../../api/api';
+import Header from '../../components/Header';
 
 interface CulturalEvent {
     [key: string]: string | null | undefined;
@@ -69,37 +70,9 @@ export default function Searching(): JSX.Element {
         }
     };
 
-    const [toggle, setToggle] = useState(false);
-
-    const useToggle = () => {
-        setToggle(!toggle);
-    };
-
     return (
         <>
-            <div
-                onClick={useToggle}
-                className={toggle ? 'mNavToggle open' : 'mNavToggle'}
-            >
-                <div className="line"></div>
-                <div className="line"></div>
-                <div className="line"></div>
-            </div>
-            <nav className={toggle ? 'navToggleOpen' : 'navToggleClose navPc'}>
-                <a
-                    href="https://culture.seoul.go.kr/culture/culture/cultureEvent/list.do?searchCate=&menuNo=200110"
-                    target="_blank"
-                >
-                    문화행사
-                </a>
-                <a href="/Culture">문화정보</a>
-                <a href="/" className="home">
-                    <img src="/logo192.png" alt="Logo" />
-                    <span>Culture-Voyage</span>
-                </a>
-                <a href="#">새소식</a>
-                <a href="#">참여</a>
-            </nav>
+            <Header></Header>
             <div className="searchContainer">
                 <header className="searchHeader">
                     <h1>
