@@ -196,6 +196,7 @@ body {
         }
         &:hover img {
             transform: scale(1.1);
+            transition: all 0.3s ease;
         }
     }
     .cultureBox2 {
@@ -253,6 +254,52 @@ li:hover {
 
 .searchClose:hover {
     color: black;
+}
+
+// 문화 행사
+.postTitle {
+    text-align: center;
+    padding: 1rem 1rem 0;
+}
+
+.postWrap {
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .post {
+        width: calc(50% - 3rem);
+        margin: 0.5rem auto;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 1rem;
+        cursor: pointer;
+        h2 {
+            font-size: 0.8rem;
+            height: 2rem;
+            overflow: hidden;
+        }
+        div {
+            margin: auto;
+            width: 80%;
+            border-radius: 1rem;
+            overflow: hidden;
+            img {
+                width: 100%;
+                border-radius: 1rem;
+                object-fit: cover;
+                transition: all 0.5s ease;
+            }
+            &:hover img {
+                transform: scale(1.1);
+                transition: all 0.5s ease;
+            }
+        }
+        p {
+            font-size: 12px;
+        }
+    }
 }
 
 // pc
@@ -364,5 +411,12 @@ li:hover {
 
     .searchClose {
         top: 0.55rem;
+    }
+
+    .postWrap {
+        padding: 2rem;
+        .post {
+            width: calc(33% - 4rem);
+        }
     }
 }
