@@ -64,7 +64,7 @@
 - 요약
   - debounce 측정 결과 '크리스마스' 키워드의 경우 API 호출 횟수 92.31% 감소, 평균 응답 시간은 65.5% 개선 <br/>
   - session '클래식' 키워드 기준 API 호출횟수는 21회에서 1회로 대폭 감소
-### 🐤 Infinite Scroll, Lazy Loading & Suspense
+### 🐤 [Infinite Scroll, Lazy Loading & Suspense](https://github.com/haileyham/CultureVoyage/issues/2)
 - 요약
   - Lighthouse 84점 -> 92점까지 개선
   - DOM 크기 및 메모리 사용량 약 32% 감소
