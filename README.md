@@ -23,6 +23,13 @@
   - API 호출 횟수 21회 -> 1회로 감소(키워드 '클래식' 2회 검색)
   - 서버 부담을 줄이고 시스템 성능 및 안정성 향상 <br/>
   #### 🐤 참고 : [debounce 및 session 성능개선 ISSUE](https://github.com/haileyham/CultureVoyage/issues/1)
+- Infinite Scroll 성능 최적화
+  - DOM 크기 및 메모리 사용량 약 32% 감소
+  - 최적화된 네트워크 사용으로 약 23% 네트워크 사용량 감소
+- Lazy Loading & Suspense 성능 최적화
+  - 초기 로드 시간 약 32% 감소
+  - 상호작용 시간(TTI) 15% 개선
+  - Lighthouse 84점 -> 92점까지 개선
 - mobile input 입력 시 확대 방지로 인한 사용자 편리성 증대
 - 반응형 웹을 통한 사용자 친화적
 
@@ -57,6 +64,14 @@
 - 요약
   - debounce 측정 결과 '크리스마스' 키워드의 경우 API 호출 횟수 92.31% 감소, 평균 응답 시간은 65.5% 개선 <br/>
   - session '클래식' 키워드 기준 API 호출횟수는 21회에서 1회로 대폭 감소
+### 🐤 Infinite Scroll, Lazy Loading & Suspense
+- 요약
+  - Lighthouse 84점 -> 92점까지 개선
+  - DOM 크기 및 메모리 사용량 약 32% 감소
+  - 최적화된 네트워크 사용으로 약 23% 네트워크 사용량 감소
+  - 초기 로드 시간 약 32% 감소
+  - 상호작용 시간(TTI) 15% 개선
+
 
 <p align="right"><a href="#top">TOP 🔼</a></p>
 
