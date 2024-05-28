@@ -45,6 +45,8 @@
     ]
   },
   "devDependencies": {
-    "@types/uuid": "^9.0.4"
+    "@types/uuid": "^9.0.4",
+    "customize-cra": "^1.0.0",
+    "react-app-rewired": "^2.2.1"
   }
 }
