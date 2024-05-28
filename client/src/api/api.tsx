@@ -10,7 +10,7 @@ export default async function api(debounced: string): Promise<CulturalEvent[]> {
         const response = await fetch(
             `${
                 process.env.REACT_APP_URL
-            }/?itemsPerPage=${1000}&debouncedValue=${debounced}`,
+            }/?itemsStartPage=1&itemsPerPage=${1000}&debouncedValue=${debounced}`,
         );
         if (!response.ok) {
             throw new Error('오류');

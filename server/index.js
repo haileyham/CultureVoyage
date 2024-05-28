@@ -17,9 +17,9 @@ app.get('/', (req, res) => {
   const baseUrl = "http://openapi.seoul.go.kr:8088/";
   const apiKey = process.env.API_KEY;
   const endpoint = "xml/culturalEventInfo/";
-  const pageNumber = 1;
+  const pageNumber = req.query.itemsStartPage;
   const itemsPerPage = req.query.itemsPerPage;
-  const debouncedValue = req.query.debouncedValue;
+  const debouncedValue = req.query.debouncedValue || '';
   const url = `${baseUrl}${apiKey}/${endpoint}${pageNumber}/${itemsPerPage}/%20/${debouncedValue}`;
 
 
