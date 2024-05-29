@@ -32,6 +32,7 @@
   - 초기 로드 시간 약 32% 감소
   - 상호작용 시간(TTI) 15% 개선
   - Lighthouse 84점 -> 92점까지 개선
+  #### 🐤 참고 : [Infinite Scroll, Lazy Loading & Suspense](https://github.com/haileyham/CultureVoyage/issues/2)
 - mobile input 입력 시 확대 방지로 인한 사용자 편리성 증대
 - 반응형 웹을 통한 사용자 친화적
 
