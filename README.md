@@ -55,14 +55,26 @@
 #### 💡 useDebounce 성능 개선
 - 검색 시 debounce를 통해 api 호출 최소화
 #### 💡 session 활용하여 검색 내용 저장 및 활용 - API 호출 부담 ↓
-- 기존에 검색하여 api 호출한 키워드의 경우 session 활용하여 재검색 시, api 재호출하지 않아 부담 최소화
+- 기존에 검색하여 api 호출한 키워드의 경우 session 활용하여 재검색 시, api 재호출하지 않아 부담 최소화 <br/>
+<a href="#성능개선">🐤 성능 개선 참고 </a>
 #### 💡 추천 검색어 기능
 - 검색창 입력시 api 호출되며 해당 검색어에 대한 키워드 반영하여 추천 검색어 표시
 - 추천 검색어의 경우 키보드 위아래 ↑ / ↓ / tab / enter 키를 이용하여 이동 가능하게 하여 사용자 편리성 증대
 
+| 추천 검색어 |
+| ---------------------------|
+| <img width="500px" src="https://raw.githubusercontent.com/haileyham/CultureVoyage/main/client/assets/images/1.gif"> | 
+
+#### 💡 무한 스크롤
+- 콘텐츠 동적으로 로드하여 초기 로드 시간 감소 및 사용자 경험 향상
+
+| 무한 스크롤 |
+| ---------------------------|
+|<img width="250px" src="https://raw.githubusercontent.com/haileyham/CultureVoyage/main/client/assets/images/2.gif"> | 
+
 <p align="right"><a href="#top">TOP 🔼</a></p>
 
-# 🐤 성능 개선
+# <span id="성능개선">🐤 성능 개선 </span>
 ### 🐤 [debounce 및 session 성능개선 ISSUE](https://github.com/haileyham/CultureVoyage/issues/1)
 - 요약
   - debounce 측정 결과 '크리스마스' 키워드의 경우 API 호출 횟수 92.31% 감소, 평균 응답 시간은 65.5% 개선 <br/>
